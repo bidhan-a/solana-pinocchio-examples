@@ -1,0 +1,16 @@
+[package]
+name = "pinocchio-hello-world"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+pinocchio = "0.8.4"
+pinocchio-log = "0.4.0"
+pinocchio-pubkey = "0.2.4"
+
+[dev-dependencies]
+mollusk-svm = "0.1.5"
+solana-sdk = "2.2.2"
