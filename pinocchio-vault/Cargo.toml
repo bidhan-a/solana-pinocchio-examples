@@ -1,0 +1,22 @@
+[package]
+name = "pinocchio-vault"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+bytemuck = { version = "1.23.0", features = ["derive", "min_const_generics"] }
+pinocchio = "0.8.4"
+pinocchio-pubkey = "0.2.4"
+pinocchio-system = "0.2.3"
+
+[dev-dependencies]
+mollusk-svm = "0.1.5"
+solana-sdk = "2.2.2"
+
+[features]
+no-bpf-entrypoint = []
+std = []
+test = ["no-bpf-entrypoint", "std"]
