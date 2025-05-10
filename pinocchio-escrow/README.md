@@ -1,11 +1,12 @@
-# pinocchio-vault
+# pinocchio-escrow
 
-This is a Solana program that demonstrates how to use the Pinocchio library to deposit into and withdraw from a vault.
+This is a Solana program that demonstrates how to use the Pinocchio library to create an escrow. The escrow allows users to create an SPL token order, take an order, and refund a created order.
 
 ## Project Structure
 
 - **`src/entrypoint.rs`**: Contains the program entrypoint.
 - **`src/instruction`**: Contains the program instructions and instruction handlers.
+- **`src/state`**: Contains the program state.
 - **`src/constants.rs`**: Contains constant values.
 - **`tests/tests.rs`**: Includes integration tests for the program using the `mollusk_svm` framework.
 

@@ -10,7 +10,7 @@ use pinocchio_vault::instruction::{DepositInstructionData, WithdrawInstructionDa
 use pinocchio_vault::ID;
 
 pub const PROGRAM: Pubkey = Pubkey::new_from_array(ID);
-pub const PAYER: Pubkey = pubkey!("41LzznNicELmc5iCR9Jxke62a3v1VhzpBYodQF5AQwHX");
+pub const PAYER: Pubkey = pubkey!("9vCdf2rh7hA7JdSVV1LEbJGFDNLjk1KHGTZW1wSRN6vC");
 
 pub fn mollusk() -> Mollusk {
     let mollusk = Mollusk::new(&PROGRAM, "target/deploy/pinocchio_vault");

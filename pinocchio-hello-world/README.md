@@ -9,8 +9,10 @@ This is a simple Solana program that demonstrates the use of the Pinocchio libra
 
 ## Prerequisites
 
-- Rust and Cargo installed.
-- Solana CLI tools installed.
+- Rust and Cargo
+- Solana CLI tools
+- Pinocchio
+- Mollusk (for testing)
 
 ## Build the Program
 
