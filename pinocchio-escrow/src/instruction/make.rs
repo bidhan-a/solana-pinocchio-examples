@@ -63,14 +63,12 @@ pub fn process_make(accounts: &[AccountInfo], data: &[u8]) -> ProgramResult {
     .invoke()?;
 
     // Initialize escrow account.
-    Escrow::initialize(
-        escrow,
-        *maker.key(),
-        *mint_a.key(),
-        *mint_b.key(),
-        instruction_data.receive_amount,
-        instruction_data.bump as u8,
-    )?;
+    let escrow_state = Escrow::load(escrow)?;
+    escrow_state.maker = *maker.key();
+    escrow_state.mint_a = *mint_a.key();
+    escrow_state.mint_b = *mint_b.key();
+    escrow_state.receive_amount = instruction_data.receive_amount;
+    escrow_state.bump = instruction_data.bump;
 
     // Transfer tokens to vault.
     pinocchio_token::instructions::Transfer {

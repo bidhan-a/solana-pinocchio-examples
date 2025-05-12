@@ -15,7 +15,7 @@ impl Counter {
     pub fn load(counter_account: &AccountInfo) -> Result<&mut Self, ProgramError> {
         let data = unsafe { counter_account.borrow_mut_data_unchecked() };
         let counter_state = bytemuck::try_from_bytes_mut::<Counter>(data)
-            .map_err(|_| ProgramError::AccountBorrowFailed)?;
+            .map_err(|_| ProgramError::InvalidAccountData)?;
         Ok(counter_state)
     }
 }
