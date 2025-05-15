@@ -8,7 +8,7 @@ This repository contains a collection of Solana programs built using Pinocchio â
 - [Counter Program](pinocchio-counter/README.md): A program that allows users to manage an on-chain counter.
 - [Vault Program](pinocchio-vault/README.md): A secure vault for users to deposit and withdraw SOL.
 - [Escrow Program](pinocchio-escrow/README.md): An escrow system that allows users to securely exchange SPL tokens.
-- [AMM Program](pinocchio-escrow/README.md): A constant product automated market maker (AMM) that lets users provide liquidity, swap tokens, and withdraw funds.
+- [AMM Program](pinocchio-amm/README.md): A constant product automated market maker (AMM) that lets users provide liquidity, swap tokens, and withdraw funds.
 
 
 ## How to Use
