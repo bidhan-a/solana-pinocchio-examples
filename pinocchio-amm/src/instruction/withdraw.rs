@@ -9,7 +9,7 @@ use pinocchio::{
 use pinocchio_log::log;
 use pinocchio_token::state::{Mint, TokenAccount};
 
-use crate::{constants::CONFIG_SEED, state::Config};
+use crate::{constants::CONFIG_SEED, error::CustomError, state::Config};
 
 #[repr(C)]
 #[derive(Clone, Copy, Pod, Zeroable)]
@@ -112,7 +112,7 @@ pub fn process_withdraw(accounts: &[AccountInfo], data: &[u8]) -> ProgramResult 
                 amount,
                 6,
             )
-            .map_err(|_| ProgramError::InvalidInstructionData)?;
+            .map_err(|_| CustomError::InvalidWithdrawal)?;
             (amounts.x, amounts.y)
         }
     };

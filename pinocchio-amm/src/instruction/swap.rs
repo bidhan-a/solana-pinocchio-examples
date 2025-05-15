@@ -8,7 +8,7 @@ use pinocchio::{
 };
 use pinocchio_token::state::{Mint, TokenAccount};
 
-use crate::{constants::CONFIG_SEED, state::Config};
+use crate::{constants::CONFIG_SEED, error::CustomError, state::Config};
 
 #[repr(C)]
 #[derive(Clone, Copy, Pod, Zeroable)]
@@ -110,7 +110,7 @@ pub fn process_swap(accounts: &[AccountInfo], data: &[u8]) -> ProgramResult {
         u16::from_le_bytes(config_account.fee),
         None,
     )
-    .map_err(|_| ProgramError::InvalidAccountData)?;
+    .map_err(|_| CustomError::InvalidSwap)?;
 
     let p = match is_x {
         true => LiquidityPair::X,
@@ -119,7 +119,7 @@ pub fn process_swap(accounts: &[AccountInfo], data: &[u8]) -> ProgramResult {
 
     let res = curve
         .swap(p, amount, u64::from_le_bytes(instruction_data.min))
-        .map_err(|_| ProgramError::InvalidAccountData)?;
+        .map_err(|_| CustomError::InvalidSwap)?;
 
     // Setup signer seeds.
     let bump = [config_account.config_bump];
@@ -156,22 +156,22 @@ pub fn process_swap(accounts: &[AccountInfo], data: &[u8]) -> ProgramResult {
     // Withdraw from pool.
     if is_x {
         pinocchio_token::instructions::TransferChecked {
-            from: vault_x,
-            mint: mint_x,
-            to: user_x,
-            authority: config,
-            amount: res.withdraw,
-            decimals: mint_x_account.decimals(),
-        }
-        .invoke_signed(&[seeds.clone()])?;
-    } else {
-        pinocchio_token::instructions::TransferChecked {
             from: vault_y,
             mint: mint_y,
             to: user_y,
             authority: config,
             amount: res.withdraw,
             decimals: mint_y_account.decimals(),
+        }
+        .invoke_signed(&[seeds.clone()])?;
+    } else {
+        pinocchio_token::instructions::TransferChecked {
+            from: vault_x,
+            mint: mint_x,
+            to: user_x,
+            authority: config,
+            amount: res.withdraw,
+            decimals: mint_x_account.decimals(),
         }
         .invoke_signed(&[seeds.clone()])?;
     }
