@@ -24,3 +24,9 @@ Have a question about any program or want to request a specific example? Feel fr
 ## Contributing
 Contributions are welcome! If you're adding a new program, please follow the general structure used in the existing programs and open a [PR](https://github.com/bidhan-a/solana-pinocchio-examples/pulls).
 
+
+## Additional Resources
+
+- [Pinocchio](https://github.com/anza-xyz/pinocchio)
+- [Mollusk](https://github.com/anza-xyz/mollusk)
+- [solana-pinocchio-starter](https://github.com/Nagaprasadvr/solana-pinocchio-starter)

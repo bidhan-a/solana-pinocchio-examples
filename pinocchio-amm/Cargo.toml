@@ -13,7 +13,6 @@ pinocchio-pubkey = "0.2.4"
 pinocchio-system = "0.2.3"
 pinocchio-token = "0.3.0"
 constant-product-curve = { git = "https://github.com/deanmlittle/constant-product-curve" }
-pinocchio-log = "0.4.0"
 
 [dev-dependencies]
 mollusk-svm = "0.1.5"

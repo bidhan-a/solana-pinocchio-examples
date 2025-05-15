@@ -6,7 +6,6 @@ use pinocchio::{
     program_error::ProgramError,
     pubkey, ProgramResult,
 };
-use pinocchio_log::log;
 use pinocchio_token::state::{Mint, TokenAccount};
 
 use crate::{constants::CONFIG_SEED, error::CustomError, state::Config};
@@ -24,7 +23,6 @@ impl WithdrawInstructionData {
 }
 
 pub fn process_withdraw(accounts: &[AccountInfo], data: &[u8]) -> ProgramResult {
-    log!("here");
     let [user, mint_x, mint_y, vault_x, vault_y, user_x, user_y, mint_lp, user_lp, config, _system_program, _token_program] =
         accounts
     else {
