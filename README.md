@@ -27,6 +27,7 @@ Contributions are welcome! If you're adding a new program, please follow the gen
 
 ## Additional Resources
 
+- [pinocchio-init](https://github.com/bidhan-a/pinocchio-init)
 - [Pinocchio](https://github.com/anza-xyz/pinocchio)
 - [Mollusk](https://github.com/anza-xyz/mollusk)
 - [solana-pinocchio-starter](https://github.com/Nagaprasadvr/solana-pinocchio-starter)
